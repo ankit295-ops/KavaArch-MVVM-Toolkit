@@ -266,7 +266,7 @@ JAVA POST<br>
     }
 );
 </code></pre><br>
-JAVA Miltipart<br>
+JAVA Multipart<br>
 <pre><code>
   List<Pair<String, File>> files = new ArrayList<>();
 files.add(new Pair<>("profileImage", new File("/path/to/image.jpg")));
