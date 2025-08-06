@@ -53,7 +53,7 @@ allprojects {
 Kotlin DSL<br>
 <pre><code>
 dependencies {
-    implementation("com.github.ankit295-ops:KavaArch-MVVM-Toolkit:0.0.1")
+    implementation("com.github.ankit295-ops:KavaArch-MVVM-Toolkit:1.0.7")
 }
 </code></pre><br>
 Groovy<br>
