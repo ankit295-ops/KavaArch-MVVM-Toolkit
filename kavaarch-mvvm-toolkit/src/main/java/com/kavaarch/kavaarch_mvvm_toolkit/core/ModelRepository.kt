@@ -12,6 +12,7 @@ import okhttp3.MultipartBody
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.RequestBody.Companion.toRequestBody
+import okhttp3.ResponseBody
 import org.json.JSONArray
 import org.json.JSONObject
 import org.json.JSONTokener
@@ -55,45 +56,53 @@ internal class ModelRepository {
 
             val request = builder.build()
             val response = client.newCall(request).execute()
-            val body = response.body.string()
-            Log.e("RRResponse:- == ", body)
+            val body: ResponseBody? = response.body
+            var checkedResponse = "Response is null"
+            if (body != null) {
+                checkedResponse = body.string()
+            }
+            Log.e("RRResponse:- == ", checkedResponse)
 
             // to handle parsing errors
-            try {
-                val responseString = handleResponse(body)
-                Log.e("RRResponse:- == ", responseString)
-                if (responseString.isNotEmpty()) {
-                    if (modelClass != null) {
-                        if (responseString.startsWith("[")) {
-                            Log.e("RRResponse:-", "Return Array")
-                            Result.success(
-                                Gson().fromJson(
-                                    responseString,
-                                    TypeToken.getParameterized(
-                                        ArrayList::class.java,
-                                        modelClass
-                                    ).type
+            if (checkedResponse == "Response is null") {
+                return@withContext Result.failure(Exception("Response is null"))
+            } else {
+                try {
+                    val responseString = handleResponse(checkedResponse)
+                    Log.e("RRResponse:- == ", responseString)
+                    if (responseString.isNotEmpty()) {
+                        if (modelClass != null) {
+                            if (responseString.startsWith("[")) {
+                                Log.e("RRResponse:-", "Return Array")
+                                Result.success(
+                                    Gson().fromJson(
+                                        responseString,
+                                        TypeToken.getParameterized(
+                                            ArrayList::class.java,
+                                            modelClass
+                                        ).type
+                                    )
                                 )
-                            )
+                            } else {
+                                Log.e("RRResponse:-", "Return Object")
+                                Result.success(
+                                    Gson().fromJson(
+                                        responseString,
+                                        TypeToken.getParameterized(
+                                            modelClass
+                                        ).type
+                                    )
+                                )
+                            }
                         } else {
-                            Log.e("RRResponse:-", "Return Object")
-                            Result.success(
-                                Gson().fromJson(
-                                    responseString,
-                                    TypeToken.getParameterized(
-                                        modelClass
-                                    ).type
-                                )
-                            )
+                            Result.success(responseString)
                         }
                     } else {
                         Result.success(responseString)
                     }
-                } else {
-                    Result.success(responseString)
+                } catch (e: Exception) {
+                    Result.failure(e)
                 }
-            } catch (e: Exception) {
-                Result.failure(e)
             }
         } catch (e: Exception) {
             Result.failure(e)
@@ -149,45 +158,53 @@ internal class ModelRepository {
                 .build()
 
             val response = client.newCall(request).execute()
-            val body = response.body.string()
-            Log.e("RRResponse:- == ", body)
+            val body: ResponseBody? = response.body
+            var checkedResponse = "Response is null"
+            if (body != null) {
+                checkedResponse = body.string()
+            }
+            Log.e("RRResponse:- == ", checkedResponse)
 
             // to handle parsing errors
-            try {
-                val responseString = handleResponse(body)
-                Log.e("RRResponse:- == ", responseString)
-                if (responseString.isNotEmpty()) {
-                    if (modelClass != null) {
-                        if (responseString.startsWith("[")) {
-                            Log.e("RRResponse:-", "Return Array")
-                            Result.success(
-                                Gson().fromJson(
-                                    responseString,
-                                    TypeToken.getParameterized(
-                                        ArrayList::class.java,
-                                        modelClass
-                                    ).type
+            if (checkedResponse == "Response is null") {
+                return@withContext Result.failure(Exception("Response is null"))
+            } else {
+                try {
+                    val responseString = handleResponse(checkedResponse)
+                    Log.e("RRResponse:- == ", responseString)
+                    if (responseString.isNotEmpty()) {
+                        if (modelClass != null) {
+                            if (responseString.startsWith("[")) {
+                                Log.e("RRResponse:-", "Return Array")
+                                Result.success(
+                                    Gson().fromJson(
+                                        responseString,
+                                        TypeToken.getParameterized(
+                                            ArrayList::class.java,
+                                            modelClass
+                                        ).type
+                                    )
                                 )
-                            )
+                            } else {
+                                Log.e("RRResponse:-", "Return Object")
+                                Result.success(
+                                    Gson().fromJson(
+                                        responseString,
+                                        TypeToken.getParameterized(
+                                            modelClass
+                                        ).type
+                                    )
+                                )
+                            }
                         } else {
-                            Log.e("RRResponse:-", "Return Object")
-                            Result.success(
-                                Gson().fromJson(
-                                    responseString,
-                                    TypeToken.getParameterized(
-                                        modelClass
-                                    ).type
-                                )
-                            )
+                            Result.success(responseString)
                         }
                     } else {
                         Result.success(responseString)
                     }
-                } else {
-                    Result.success(responseString)
+                } catch (e: Exception) {
+                    Result.failure(e)
                 }
-            } catch (e: Exception) {
-                Result.failure(e)
             }
         } catch (e: Exception) {
             Result.failure(e)
