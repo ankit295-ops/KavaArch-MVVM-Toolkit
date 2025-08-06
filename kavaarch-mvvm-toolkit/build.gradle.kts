@@ -43,7 +43,7 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
-    api("com.squareup.okhttp3:okhttp:5.1.0")
+    api("com.squareup.okhttp3:okhttp:4.12.0")
     api("com.google.code.gson:gson:2.13.1")
     api("androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.2")
     api("androidx.lifecycle:lifecycle-livedata-ktx:2.9.2")
@@ -51,4 +51,4 @@ dependencies {
 }
 
 group = "com.github.ankit295-ops"  // Replace with your GitHub username
-version = "1.0.2"
+version = "1.0.3"
