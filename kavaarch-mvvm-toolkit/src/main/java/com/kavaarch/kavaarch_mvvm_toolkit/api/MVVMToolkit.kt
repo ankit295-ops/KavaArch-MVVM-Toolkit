@@ -4,9 +4,9 @@ import androidx.annotation.Keep
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
+import com.kavaarch.kavaarch_mvvm_toolkit.core.ModelRegistry
 import com.kavaarch.kavaarch_mvvm_toolkit.internal.ResultCallback
 import com.kavaarch.kavaarch_mvvm_toolkit.internal.UploadProgressCallback
-import com.kavaarch.kavaarch_mvvm_toolkit.core.ModelRegistry
 import com.nova.mvvmtoolkit.core.ModelViewModel
 import com.nova.mvvmtoolkit.core.ToolkitViewModelFactory
 import java.io.File
@@ -67,7 +67,7 @@ object MVVMToolkit {
         val viewModel = getModelViewModel(owner, modelClass)
 
         viewModel.getLiveData(method, endpoint, requestBody)
-            .observe(owner as LifecycleOwner) { result ->
+            .observe(owner as? LifecycleOwner ?: return) { result ->
                 callback.onResponse(result)
             }
     }
@@ -99,8 +99,9 @@ object MVVMToolkit {
 
         viewModel.getMultipartLiveData(endpoint, files, formFields) { progress ->
             progressCallback?.onProgress(progress)
-        }.observe(owner as LifecycleOwner) { response ->
+        }.observe(owner as? LifecycleOwner ?: return) { response ->
             responseCallback.onResponse(response)
         }
     }
+
 }
