@@ -315,6 +315,4 @@ MIT License © 2025 ankit295-ops
 
 If you like this project or it helped you in any way, consider buying me a coffee:
 
-<a href="https://www.buymeacoffee.com/ankitmaurya295" target="_blank">
-  <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" height="50" width="210">
-</a>
+<a href="https://www.buymeacoffee.com/ankitmaurya295"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=ankitmaurya295&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
