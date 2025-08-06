@@ -1,6 +1,5 @@
 package com.nova.mvvmtoolkit.core
 
-import android.util.Log
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.kavaarch.kavaarch_mvvm_toolkit.core.ModelRegistry
@@ -61,7 +60,6 @@ internal class ModelRepository {
             if (body != null) {
                 checkedResponse = body.string()
             }
-            Log.e("RRResponse:- == ", checkedResponse)
 
             // to handle parsing errors
             if (checkedResponse == "Response is null") {
@@ -69,11 +67,9 @@ internal class ModelRepository {
             } else {
                 try {
                     val responseString = handleResponse(checkedResponse)
-                    Log.e("RRResponse:- == ", responseString)
                     if (responseString.isNotEmpty()) {
                         if (modelClass != null) {
                             if (responseString.startsWith("[")) {
-                                Log.e("RRResponse:-", "Return Array")
                                 Result.success(
                                     Gson().fromJson(
                                         responseString,
@@ -84,7 +80,6 @@ internal class ModelRepository {
                                     )
                                 )
                             } else {
-                                Log.e("RRResponse:-", "Return Object")
                                 Result.success(
                                     Gson().fromJson(
                                         responseString,
@@ -163,7 +158,6 @@ internal class ModelRepository {
             if (body != null) {
                 checkedResponse = body.string()
             }
-            Log.e("RRResponse:- == ", checkedResponse)
 
             // to handle parsing errors
             if (checkedResponse == "Response is null") {
@@ -171,11 +165,9 @@ internal class ModelRepository {
             } else {
                 try {
                     val responseString = handleResponse(checkedResponse)
-                    Log.e("RRResponse:- == ", responseString)
                     if (responseString.isNotEmpty()) {
                         if (modelClass != null) {
                             if (responseString.startsWith("[")) {
-                                Log.e("RRResponse:-", "Return Array")
                                 Result.success(
                                     Gson().fromJson(
                                         responseString,
@@ -186,7 +178,6 @@ internal class ModelRepository {
                                     )
                                 )
                             } else {
-                                Log.e("RRResponse:-", "Return Object")
                                 Result.success(
                                     Gson().fromJson(
                                         responseString,
@@ -213,9 +204,7 @@ internal class ModelRepository {
 
     private fun handleResponse(body: String?): String {
         if (body != null) {
-            Log.e("handleResponse", "Entered Not NUll")
             if (body.replace("\n".toRegex(), "").trim().startsWith("[")) {
-                Log.e("handleResponse", "Found Array")
                 val array = JSONArray(body)
                 if (array.length() > 0) {
                     return array.toString()
@@ -223,7 +212,6 @@ internal class ModelRepository {
             } else {
                 val data = JSONTokener(body.replace("\n".toRegex(), "").trim()).nextValue()
                 if (data is JSONObject) {
-                    Log.e("handleResponse", "Found Object")
                     val jSONObject = JSONObject(body)
                     return jSONObject.toString()
                 } else {

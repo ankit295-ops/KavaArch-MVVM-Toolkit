@@ -51,4 +51,4 @@ dependencies {
 }
 
 group = "com.github.ankit295-ops"  // Replace with your GitHub username
-version = "1.0.6"
+version = "0.0.1"
