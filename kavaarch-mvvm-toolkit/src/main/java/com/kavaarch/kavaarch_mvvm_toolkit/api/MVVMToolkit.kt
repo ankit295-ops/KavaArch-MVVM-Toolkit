@@ -5,8 +5,8 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
 import com.kavaarch.kavaarch_mvvm_toolkit.core.ModelRegistry
-import com.kavaarch.kavaarch_mvvm_toolkit.internal.ResultCallback
-import com.kavaarch.kavaarch_mvvm_toolkit.internal.UploadProgressCallback
+import com.kavaarch.kavaarch_mvvm_toolkit.inter.ResultCallback
+import com.kavaarch.kavaarch_mvvm_toolkit.inter.UploadProgressCallback
 import com.nova.mvvmtoolkit.core.ModelViewModel
 import com.nova.mvvmtoolkit.core.ToolkitViewModelFactory
 import java.io.File
@@ -68,7 +68,11 @@ object MVVMToolkit {
 
         viewModel.getLiveData(method, endpoint, requestBody)
             .observe(owner as? LifecycleOwner ?: return) { result ->
-                callback.onResponse(result)
+                if (result.isSuccess) {
+                    callback.onResponse(result)
+                } else {
+                    callback.onError(result)
+                }
             }
     }
 
@@ -100,7 +104,11 @@ object MVVMToolkit {
         viewModel.getMultipartLiveData(endpoint, files, formFields) { progress ->
             progressCallback?.onProgress(progress)
         }.observe(owner as? LifecycleOwner ?: return) { response ->
-            responseCallback.onResponse(response)
+            if (response.isSuccess) {
+                responseCallback.onResponse(response)
+            } else {
+                responseCallback.onError(response)
+            }
         }
     }
 

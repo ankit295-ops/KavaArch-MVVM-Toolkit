@@ -1,7 +1,8 @@
-package com.kavaarch.kavaarch_mvvm_toolkit.internal
+package com.kavaarch.kavaarch_mvvm_toolkit.inter
 
 interface ResultCallback {
     fun onResponse(response: Any?)
+    fun onError(error: Any?)
 }
 
 interface UploadProgressCallback {
