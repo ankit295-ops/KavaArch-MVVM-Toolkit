@@ -1,17 +1,36 @@
 # KavaArch-MVVM-Toolkit
 
-A lightweight, Retrofit-free Android MVVM toolkit for seamless API integration using LiveData, ViewModel, and Coroutines — **no Retrofit, no boilerplate, just plug and play**.
+![Release](https://img.shields.io/github/v/release/ankit295-ops/KavaArch-MVVM-Toolkit)
+![Stars](https://img.shields.io/github/stars/ankit295-ops/KavaArch-MVVM-Toolkit)
+![Issues](https://img.shields.io/github/issues/ankit295-ops/KavaArch-MVVM-Toolkit)
+![License](https://img.shields.io/github/license/ankit295-ops/KavaArch-MVVM-Toolkit)
+
+A lightweight, open-source Android MVVM architecture library written in Kotlin. It helps you integrate APIs using **ViewModel, LiveData**, and **Coroutines** — all **without Retrofit** and with **minimal boilerplate**.
+
+---
+
+## ❓ What is KavaArch-MVVM-Toolkit?
+
+KavaArch-MVVM-Toolkit is a plug-and-play Android MVVM toolkit built for developers who want:
+
+- Simpler MVVM implementation
+- Retrofit-free architecture
+- Easy API integration using Coroutines
+- Reusability across projects
+
+Whether you're a beginner or experienced developer, this library helps you build scalable and maintainable Android apps faster.
 
 ---
 
 ## ✨ Features
 
 - 🚫 No Retrofit required
-- 💡 Minimal setup using ViewModel + LiveData + Coroutines
-- 🔌 Easy model mapping via toolkit initialization
-- 📤 Multipart file upload support with progress tracking
-- ✅ Lightweight and efficient
-- 🔁 Reusable and scalable MVVM architecture
+- ⚡ Fast and simple API integration
+- 🧠 ViewModel + LiveData + Coroutines-based
+- 📤 Multipart file uploads with progress tracking
+- 🧩 Minimal setup – just initialize and go!
+- 🔁 Reusable and scalable architecture
+- 💡 Works with both Kotlin & Java
 
 ---
 
@@ -302,6 +321,12 @@ MVVMToolkit.observeMultipartApi(
 );
 </code></pre><br>
 ---
+## ☕ Support
+
+If you find this project helpful or use it in your app, consider supporting my work:
+
+<a href="https://www.buymeacoffee.com/ankitmaurya295"> <img src="https://img.buymeacoffee.com/button-api/?text=Buy%20me%20a%20coffee&slug=ankitmaurya295&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" alt="Buy Me A Coffee"> </a>
+---
 ## 🛡️ ProGuard / R8 Rules
 <pre><code>
 -keep class com.kavaarch.kavaarch_mvvm_toolkit.** { *; }
@@ -309,13 +334,7 @@ MVVMToolkit.observeMultipartApi(
 </code></pre><br>
 ---
 ## 📁 License
-MIT License © 2025 ankit295-ops
+MIT License © 2025 Ankit Maurya
 ---
-## ☕ Support
-
-If you like this project or it helped you in any way, consider buying me a coffee:
-
-<a href="https://www.buymeacoffee.com/ankitmaurya295">
-  <img src="https://img.buymeacoffee.com/button-api/?text=Buy%20me%20a%20coffee&slug=ankitmaurya295&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" alt="Buy Me A Coffee">
-</a>
-
+## 📣 Spread the Word
+If this library helped you, give it a ⭐ on GitHub, share it with the Android dev community, or include it in your blogs or videos.
