@@ -4,7 +4,6 @@
 ![Stars](https://img.shields.io/github/stars/ankit295-ops/KavaArch-MVVM-Toolkit)
 ![Issues](https://img.shields.io/github/issues/ankit295-ops/KavaArch-MVVM-Toolkit)
 ![License](https://img.shields.io/github/license/ankit295-ops/KavaArch-MVVM-Toolkit)
-![GitHub topics](https://img.shields.io/github/topics/ankit295-ops/KavaArch-MVVM-Toolkit)
 
 A lightweight, open-source Android MVVM architecture library written in Kotlin. It helps you integrate APIs using **ViewModel, LiveData**, and **Coroutines** — all **without Retrofit** and with **minimal boilerplate**.
 
